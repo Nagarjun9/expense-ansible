@@ -1,10 +1,9 @@
 - name: disable nodejs 
   hosts: db.daws78s.cloud
   become: yes 
-  vars_prompt:
-    name: my_root_password
-    prompt: please enter the password 
-    private: false 
+  vars: 
+    login_host: db.daws78s.cloud
+    login_password: ExpenseApp@1
   tasks:
   - name: disable nodejs 
     ansible.builtin.command: dnf module disable nodejs -y
@@ -66,7 +65,13 @@
     ansible.builtin.command: dnf install mysql -y
 
   - name: load the schema 
-    ansible.builtin.command: mysql -h db.daws78s.cloud -uroot -p{{my_root_password}} < /app/schema/backend.sql
+    community.mysql.mysql_db:
+      login_user: root
+      login_password: "{{login_password}}"
+      login_host: "{{login_host}}"
+      state: import
+      target: /app/schema/backend.sql
+
 
   - name: start the backend
     ansible.builtin.service:
