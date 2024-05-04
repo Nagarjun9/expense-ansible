@@ -13,6 +13,14 @@
       state: started
       enabled: yes
 
+  - name: install PyMySQL in db server for dependence 
+    ansible.builtin.pip:
+    name:
+      - PyMySQL
+      - cryptography
+    `executable: pip3.9
+
+
   - name: check root password set or not 
     community.mysql.mysql_info:
       login_user: root
@@ -24,5 +32,7 @@
   - name: check root use info 
     ansible.builtin.debug:
       msg: "{{my_root_info}}"
+
+
 
   
