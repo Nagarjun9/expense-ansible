@@ -31,7 +31,7 @@
 
   - name: check root use info 
     ansible.builtin.debug:
-      msg: "{{my_root_info}}"
+      msg: "Output: {{my_root_info}}"
 
   
   - name: set root password
