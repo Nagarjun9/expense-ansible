@@ -1,0 +1,28 @@
+- name: install mysql database 
+  hosts: db.daws78s.cloud 
+  become: yes
+  task:
+  - name: instal MySQL Server
+    ansible.builtin.dnf:
+      name: mysql-server
+      state: latest
+  
+  - name: enable and start the mysql 
+    ansible.builtin.service:
+      name: mysqld
+      state: started
+      enabled: yes
+
+  - name: check root password set or not 
+    community.mysql.mysql_info:
+      login_user: root
+      login_password: ExpenseApp@1
+      login_host: db.daws78s.cloud 
+      ignore_error: yes
+      registry: my_root_info 
+
+  - name: check root use info 
+    ansible.builtin.debug:
+      msg: "{{my_root_info}}"
+
+  
