@@ -25,13 +25,15 @@
     community.mysql.mysql_info:
       login_user: root
       login_password: ExpenseApp@1
-      login_host: db.daws78s.cloud 
+      login_host: db 
     ignore_errors: yes
     register: my_root_info 
 
   - name: check root use info 
     ansible.builtin.debug:
       msg: "{{my_root_info}}"
+
+  - 
 
 
 
