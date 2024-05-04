@@ -19,7 +19,7 @@
       login_password: ExpenseApp@1
       login_host: db.daws78s.cloud 
     ignore_errors: yes
-    registry: my_root_info 
+    register: my_root_info 
 
   - name: check root use info 
     ansible.builtin.debug:
