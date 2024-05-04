@@ -15,10 +15,10 @@
 
   - name: install PyMySQL in db server for dependence 
     ansible.builtin.pip:
-    name:
+      name:
       - PyMySQL
       - cryptography
-    `executable: pip3.9
+      executable: pip3.9
 
 
   - name: check root password set or not 
