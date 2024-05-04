@@ -2,7 +2,7 @@
   hosts: db 
   tasks: 
   - name: install mysql server 
-    ansible.builtin.dnf
+    ansible.builtin.dnf:
       name: mysql-server
       state: latest
 
