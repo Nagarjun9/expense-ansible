@@ -1,7 +1,7 @@
 - name: install mysql database 
   hosts: db.daws78s.cloud 
   become: yes
-  task:
+  tasks:
   - name: instal MySQL Server
     ansible.builtin.dnf:
       name: mysql-server
