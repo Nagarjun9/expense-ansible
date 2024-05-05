@@ -54,10 +54,8 @@
       enabled: yes
 
   - name: install mysql 
-    ansible.builtin.dnf:
-       name: mysql 
-       state: latest
-
+    ansible.builtin.command: dnf install mysql -y
+   
   - name: load the data 
     community.mysql.mysql_db:
         login_user: root 
