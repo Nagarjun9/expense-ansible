@@ -10,6 +10,7 @@
   - name: Start MySQL Service
     ansible.builtin.service:
        name: mysqld
+       state: started
        enabled: yes 
 
   - name: check DB connection
