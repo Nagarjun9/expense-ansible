@@ -1,5 +1,5 @@
 - name: create db server 
-  hosts: db.daws78s.cloud 
+  hosts: db
   become: yes 
   tasks:
   - name: Install MySQL
@@ -16,8 +16,8 @@
     community.mysql.mysql_info:
        login_user: root
        login_password: ExpenseApp@1 
-       login_host: db.daws78s.cloud 
-    ignore_error: yes
+       login_host: db
+    ignore_errors: yes
     registory: my_root_password_output  
 
   - name: output of root password 
