@@ -12,17 +12,17 @@
        name: mysqld
        enabled: yes 
 
-  - name: check root password 
+  - name: check DB connection
     community.mysql.mysql_info:
-       login_user: root
-       login_password: ExpenseApp@1 
-       login_host: db
-    ignore_errors: yes
-    registory: my_root_password_output  
+      login_user: root
+      login_password: ExpenseApp@1 
+      login_host: db 
+    ignore_errors: yes 
+    register: mysql_connection_output
 
   - name: output of root password 
     ansible.builtin.debug:
-      msg: "output: {{ my_root_password_output }}"
+      msg: "output: {{ mysql_connection_output }}"
 
   #- name: set the root password 
     
